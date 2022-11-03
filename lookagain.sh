@@ -1,0 +1,1 @@
+find . -name '*.sh' | ls -a | cut -d "/" -f2 | cut -d "." -f1 
