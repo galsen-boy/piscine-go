@@ -19,3 +19,4 @@ func PrintComb2() {
 		}
 	}
 	z01.PrintRune('\n')
+}
