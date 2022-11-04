@@ -6,6 +6,7 @@ func PrintNum(num int) {
 	i := '0'
 	if num == 0 {
 		z01.PrintRune('0')
+		return
 	}
 	for j := 1; j <= num%10; j++ {
 		i++
