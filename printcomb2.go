@@ -12,7 +12,7 @@ func PrintComb2() {
 					z01.PrintRune(' ')
 					z01.PrintRune(k)
 					z01.PrintRune(l)
-					if i == k && l == j+1 {
+					if i == k && l > j {
 						z01.PrintRune(',')
 						z01.PrintRune(' ')
 					}
