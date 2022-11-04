@@ -6,7 +6,6 @@ func PrintNum(num int) {
 	i := '0'
 	if num == 0 {
 		z01.PrintRune('0')
-		z01.PrintRune('\n')
 	}
 	for j := 1; j <= num%10; j++ {
 		i++
@@ -18,7 +17,6 @@ func PrintNum(num int) {
 		PrintNum(num / 10)
 	}
 	z01.PrintRune(i)
-	z01.PrintRune('\n')
 }
 
 func PrintNbr(n int) {
