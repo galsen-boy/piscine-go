@@ -1,29 +1,26 @@
 package piscine
 
 func Atoi(s string) int {
-	if StrLen(s) == 0 {
-		return 0
-	}
-
-	s0 := s
-	if s[0] == '-' || s[0] == '+' {
-		s = s[1:]
-		if StrLen(s) < 1 {
-			return 0
+	x := 0
+	z := 1
+	for i, n := range s {
+		y := 0
+		if n < '0' || n > '9' {
+			if n == '-' || n == '+' {
+				if i != 0 {
+					return 0
+				}
+				if n == '-' {
+					z = -1
+				}
+			} else {
+				return 0
+			}
 		}
-	}
-
-	nm := 0
-
-	for _, i := range s {
-		if i < '0' || i > '9' || i > 1 {
-			return 0
+		for i := '1'; i <= n; i++ {
+			y++
 		}
-		nm = nm*10 + int(i) - '0'
+		x = x*10 + y*z
 	}
-
-	if s0[0] == '-' {
-		nm *= -1
-	}
-	return nm
+	return x
 }
