@@ -5,6 +5,7 @@ func Atoi(s string) int {
 		return 0
 	}
 
+	s0 := s
 	if s[0] == '-' || s[0] == '+' {
 		s = s[1:]
 		if StrLen(s) < 1 {
@@ -15,11 +16,14 @@ func Atoi(s string) int {
 	nm := 0
 
 	for _, i := range s {
-		if i < '0' || i > '9' {
+		if i < '0' || i > '9' || i > 1 {
 			return 0
 		}
-		nm = nm*10 + int(i)
+		nm = nm*10 + int(i) - '0'
 	}
 
+	if s0[0] == '-' {
+		nm *= -1
+	}
 	return nm
 }
