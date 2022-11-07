@@ -1,9 +1,11 @@
 package piscine
 
 func SortIntegerTable(table []int) {
-	for j := 0; j < len(table)-1-i; j++ {
-		if table[j] > table[j+1] {
-			table[j+1], table[j] = table[j], table[j+1]
+	for i := 0; i < len(table); i++ {
+		for j := 0; j < len(table); j++ {
+			if table[i] < table[j] {
+				table[i], table[j] = table[j], table[j]
+			}
 		}
 	}
 }
