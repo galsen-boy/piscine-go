@@ -1,15 +1,12 @@
 package piscine
 
-import (
-	"strconv"
-)
-
 func BasicAtoi2(s string) int {
-	i, valeur := strconv.Atoi(s)
-
-	if valeur == nil {
-		return i
-	} else {
-		return 0
+	num := 0
+	for _, i := range s {
+		if i < '0' || i > '9' {
+			return 0
+		}
+		num = num*10 + int(i) - '0'
 	}
+	return num
 }
