@@ -4,16 +4,16 @@ func FindNextPrime(nb int) int {
 	if nb < 3 {
 		return 2
 	}
-	for baye := nb; ; baye++ {
+	for i := nb; ; i++ {
 		isprime := true
-		for fall := 2; fall <= nb/2; fall++ {
-			if baye%fall == 0 {
+		for j := 2; j*j <= i; j++ {
+			if i%j == 0 {
 				isprime = false
 				break
 			}
 		}
 		if isprime {
-			return baye
+			return i
 		}
 	}
 }
