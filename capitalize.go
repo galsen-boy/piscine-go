@@ -1,8 +1,8 @@
 package piscine
 
 func Capitalize(s string) string {
-	a := []rune(s) /
-	b := 0         
+	a := []rune(s)
+	b := 0
 	for i := range a {
 		if (a[i] >= 'a' && a[i] <= 'z') || (a[i] >= 'A' && a[i] <= 'Z') || (a[i] <= '9' && a[i] >= '0') {
 			b++
@@ -12,11 +12,10 @@ func Capitalize(s string) string {
 
 		if b == 1 && a[i] >= 'a' && a[i] <= 'z' {
 			a[i] -= 32
-
 		} else if b > 1 && a[i] >= 'A' && a[i] <= 'Z' {
 			a[i] += 32
 		}
 	}
-	m = string(a)
-	return m
+	s = string(a)
+	return s
 }
