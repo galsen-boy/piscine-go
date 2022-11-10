@@ -2,67 +2,58 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-var x = []rune{'1', '2', '3', '4', '5', '6', '7', '8'}
+const n int = 8
 
 func EightQueens() {
-	print := true
+	var rows [n]int
+	getQueens(rows, 0)
+}
 
-	for i := 0; i < 8; i++ {
-		for j := i + 1; j < 8; j++ {
-			if i == j {
-				continue
-			}
-			if x[i] == x[j] {
-				print = false
-				break
-			}
-			var diff rune
-			if diff = x[i] - x[j]; x[i] < x[j] {
-				diff = x[j] - x[i]
-			}
-			if diff == rune(j-i) {
-				print = false
-				break
+func getQueens(rows [n]int, a int) {
+	for i := 0; i < n; i++ {
+		if checkPlace(rows, i, a) {
+			rows[a] = i
+			if a == n-1 {
+				for j := 0; j < n; j++ {
+					z01.PrintRune(getRuneQ(rows[j]))
+				}
+				z01.PrintRune('\n')
+			} else {
+				getQueens(rows, a+1)
 			}
 		}
-		if !print {
-			break
+	}
+}
+
+func checkPlace(rows [n]int, a, b int) bool {
+	if b == 0 {
+		return true
+	}
+	for i := 0; i < b; i++ {
+		if rows[i] == a || rows[i] == a+b-i || rows[i] == a-b+i {
+			return false
 		}
 	}
+	return true
+}
 
-	if print {
-		for _, r := range x {
-			z01.PrintRune(r)
-		}
-		z01.PrintRune('\n')
+func getRuneQ(num int) (runenum rune) {
+	switch num {
+	case 0:
+		return '1'
+	case 1:
+		return '2'
+	case 2:
+		return '3'
+	case 3:
+		return '4'
+	case 4:
+		return '5'
+	case 5:
+		return '6'
+	case 6:
+		return '7'
+	default:
+		return '8'
 	}
-
-	i := 7
-	for i > 0 && x[i-1] >= x[i] {
-		i--
-	}
-
-	if i <= 0 {
-		return
-	}
-
-	j := 7
-
-	for x[j] <= x[i-1] {
-		j--
-	}
-
-	t := x[i-1]
-	x[i-1] = x[j]
-	x[j] = t
-
-	j = 7
-	for i < j {
-		t := x[i]
-		x[i] = x[j]
-		x[j] = t
-		i++
-		j--
-	}
-	EightQueens()
 }
