@@ -4,10 +4,10 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func IsSafe(baye int, fall int, pos [8]int) bool {
-	for i := 0; i < baye; i++ {
+func IsSafe(qn int, rp int, pos [8]int) bool {
+	for i := 0; i < qn; i++ {
 		t := pos[i]
-		if t == fall || t == fall-(baye-i) || t == fall+(baye-i) {
+		if t == rp || t == rp-(qn-i) || t == rp+(qn-i) {
 			return false
 		}
 	}
