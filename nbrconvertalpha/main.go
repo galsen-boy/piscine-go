@@ -7,15 +7,28 @@ import (
 )
 
 func BasicAtoi(s string) int {
-	x := 0
-	for _, n := range s {
-		y := 0
-		for i := '1'; i <= n; i++ {
-			y++
+	d := 0
+
+	for _, i := range s {
+		if '0' <= i && i <= '9' {
+			pam := 0
+			for x := '1'; x <= i; x++ {
+				pam = pam + 1
+			}
+
+			d = d*10 + pam
+
+		} else {
+			d = -1
+			break
 		}
-		x = x*10 + y
 	}
-	return x
+
+	if (d != -1) && !(1 <= d && d <= 26) {
+		d = -1
+	}
+
+	return d
 }
 
 func main() {
