@@ -7,30 +7,23 @@ import (
 )
 
 func main() {
-	daiba := os.Args[1:]
-	var bas []int
-	p := 96
-	for _, a := range daiba {
-		if a == "--upper" {
-			p = 64
-			continue
+	lennbr := 0
+	bool := false
+	li := 96
+	// argument := os.Args
+	for i, correspond := range os.Args {
+		lennbr = index
+		if correspond == "---upper" {
+			bool = true
 		}
-		n := 0
-		for _, j := range a {
-			n = n*10 + int(rune(j)-'0')
-		}
-		bas = append(bas, n)
 	}
-	for i := 0; i < len(bas); i++ {
-		if len(bas) == 0 {
-			break
-		} else if bas[i] > 26 {
-			z01.PrintRune(rune(' '))
-			continue
-		}
-		z01.PrintRune(rune(bas[i]) + rune(k))
+	if bool == true {
+		li = 64
 	}
-	if len(bas) > 0 {
-		z01.PrintRune('\n')
+	for i := 1; i <= lennbr; i++ {
+		for _, correspond := range os.Args[i] {
+			z01.PrintRune(correspond + rune(li))
+		}
+		z01.PrintRune(10)
 	}
 }
