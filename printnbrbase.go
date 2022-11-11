@@ -6,48 +6,43 @@ import (
 
 func PrintNbrBase(nbr int, base string) {
 	counter := 0
-	bien := false
-	mal := false
-	for i, v := range base {
-		if v == '-' || v == '+' {
-			bien = true
+	for _, a1 := range base {
+		daiba := 0
+		if a1 == '+' || a1 == '-' {
+			z01.PrintRune('N')
+			z01.PrintRune('V')
+			return
+		}
+		for _, a2 := range base {
+			if a1 == a2 {
+				daiba++
+			}
+			if daiba == 2 {
+				z01.PrintRune('N')
+				z01.PrintRune('V')
+				return
+			}
 		}
 		counter++
-		for j, v2 := range base {
-			if v == v2 && i != j {
-				bien = true
-			}
-		}
-	}
-	if bien == true {
-		z01.PrintRune('N')
-		z01.PrintRune('V')
-
 	}
 	if counter < 2 {
-		bien = true
-	} else {
-		if nbr < 0 {
-			mal = true
-			nbr = nbr * (-1)
+		z01.PrintRune('N')
+		z01.PrintRune('V')
+		return
+	}
+	mod := ""
+	va := []rune(base)
+	if nbr < 0 {
+		z01.PrintRune('-')
+	}
+	for ; nbr != 0; nbr /= counter {
+		index := nbr % counter
+		if index < 0 {
+			index = -index
 		}
-		res := ""
-		bRune := []rune(base)
-		for nbr != 0 {
-			x := nbr % counter
-			if x < 0 {
-				x = x * (-1)
-			}
-			res = string(bRune[x]) + res
-			nbr = nbr / counter
-		}
-		if mal == true {
-			z01.PrintRune('-')
-		}
-		runes := []rune(res)
-		for _, v := range runes {
-			z01.PrintRune(v)
-		}
-
+		mod = string(va[index]) + mod
+	}
+	for _, r := range mod {
+		z01.PrintRune(r)
 	}
 }
