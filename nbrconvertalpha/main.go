@@ -2,62 +2,32 @@ package main
 
 import (
 	"os"
+	"strconv"
 
 	"github.com/01-edu/z01"
 )
 
-func BasicAtoi(s string) int {
-	d := 0
-
-	for _, i := range s {
-		if '0' <= i && i <= '9' {
-			pam := 0
-			for x := '1'; x <= i; x++ {
-				pam = pam + 1
-			}
-
-			d = d*10 + pam
-
-		} else {
-			d = -1
-			break
-		}
-	}
-
-	if (d != -1) && !(1 <= d && d <= 26) {
-		d = -1
-	}
-
-	return d
-}
-
 func main() {
-	arguments := os.Args
-	position := 1
-	flag := false
-	compteur := 0
-	for range arguments {
-		compteur++
+	args := os.Args[1:]
+	if len(args) == 0 {
+		return
 	}
-
-	if compteur >= 2 && arguments[1] == "--upper" {
-		position = 2
-		flag = true
+	var upper bool
+	if args[0] == "--upper" {
+		upper = true
+		args = args[1:]
 	}
-
-	for index, as := range arguments {
-		if index >= position {
-			num := BasicAtoi(as)
-			if num == -1 {
-				z01.PrintRune(' ')
+	for _, arg := range args {
+		if nb, err := strconv.Atoi(arg); err != nil || nb < 1 || nb > 26 {
+			z01.PrintRune(' ')
+		} else {
+			if upper {
+				nb += 'A' - 1
 			} else {
-				if !flag {
-					z01.PrintRune(rune('a' + num - 1))
-				} else {
-					z01.PrintRune(rune('A' + num - 1))
-				}
+				nb += 'a' - 1
 			}
+			z01.PrintRune(rune(nb))
 		}
 	}
-	z01.PrintRune(10)
+	z01.PrintRune('\n')
 }
