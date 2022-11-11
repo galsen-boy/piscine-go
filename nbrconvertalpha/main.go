@@ -8,16 +8,16 @@ import (
 
 func main() {
 	lennbr := 0
-	bool := false
+	bil := false
 	li := 96
 	// argument := os.Args
-	for i, correspond := range os.Args {
-		lennbr = index
+	for in, correspond := range os.Args {
+		lennbr = in
 		if correspond == "---upper" {
-			bool = true
+			bil = true
 		}
 	}
-	if bool == true {
+	if bil == true {
 		li = 64
 	}
 	for i := 1; i <= lennbr; i++ {
