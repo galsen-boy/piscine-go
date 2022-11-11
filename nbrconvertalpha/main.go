@@ -48,7 +48,7 @@ func main() {
 	for index, as := range arguments {
 		if index >= position {
 			num := BasicAtoi(as)
-			if num == 1 {
+			if num == -1 {
 				z01.PrintRune(' ')
 			} else {
 				if !flag {
