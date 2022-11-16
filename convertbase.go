@@ -1,20 +1,20 @@
 package piscine
 
 func ConvertBase(nbr, baseFrom, baseTo string) string {
-	ResBase := 0
+	daiba := 0
 	for _, v1 := range nbr {
 		for i2, v2 := range baseFrom {
 			if v1 == v2 {
-				ResBase = ResBase*StringLen(baseFrom) + i2
+				daiba = daiba*StringLen(baseFrom) + i2
 			}
 		}
 	}
 
 	x := ""
-	for ResBase != 0 {
+	for daiba != 0 {
 
-		x = string(baseTo[ResBase%StringLen(baseTo)]) + x
-		ResBase /= StringLen(baseTo)
+		x = string(baseTo[daiba%StringLen(baseTo)]) + x
+		daiba /= StringLen(baseTo)
 	}
 
 	return x
