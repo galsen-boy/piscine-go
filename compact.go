@@ -6,7 +6,7 @@ func Compact(ptr *[]string) int {
 	compteur := 0
 
 	for _, v := range *ptr {
-		if v != " " {
+		if v != "" {
 			daiba[compteur] = v
 			compteur++
 		}
