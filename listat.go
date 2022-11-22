@@ -1,13 +1,14 @@
 package piscine
 
-func ListAt(l *NodeL, pos int) *NodeL {
-	count := 1
-	node := l
-	for ; node != nil; count++ {
-		if count == pos {
-			return node.Next
+func ListAt(link *NodeL, pos int) *NodeL {
+	compteur := -1
+
+	for link != nil {
+		compteur++
+		if compteur == pos {
+			return link
 		}
-		node = node.Next
+		link = link.Next
 	}
-	return nil
+	return link
 }
