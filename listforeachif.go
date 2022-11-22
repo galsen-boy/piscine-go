@@ -20,7 +20,7 @@ func IsNegative_node(node *NodeL) bool {
 	return false
 }
 
-func IsNotNumeric_node(node *NodeL) bool {
+func IsAlNode(node *NodeL) bool {
 	switch node.Data.(type) {
 	case int, float32, float64, byte:
 		return false
