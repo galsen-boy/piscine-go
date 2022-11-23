@@ -5,7 +5,7 @@ func BTreeIsBinary(root *TreeNode) bool {
 		return true
 	}
 	checker := false
-	if root.Left.Data > root.Data && root.Right.Data < root.Data {
+	if root.Left.Data < root.Data && root.Right.Data > root.Data {
 		checker = BTreeIsBinary(root.Right)
 		if checker == true {
 			checker = BTreeIsBinary(root.Left)
