@@ -1,1 +1,0 @@
-Almost therego run . quest8.txt

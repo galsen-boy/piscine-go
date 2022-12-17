@@ -1,1 +1,0 @@
-find -name '*.sh' | sed 's/.sh//'|cut -d '/' -f1 | sed 's/.sh//'

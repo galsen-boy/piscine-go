@@ -1,5 +1,4 @@
 package piscine
-
 func AlphaCount(s string) int {
 	counter := 0
 	for i := 0; i < len(s); i++ {
